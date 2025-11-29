@@ -1,0 +1,13 @@
+<div class="product-item" *ngIf="product">
+  <a [routerLink]="['/product', product.id]">
+    <img [src]="product.url" [alt]="product.name" class="product-image">
+  </a>
+  <h3>{{ product.name }}</h3>
+  <p>${{ product.price }}</p>
+
+  <select [(ngModel)]="selectedQuantity">
+    <option *ngFor="let i of quantities" [ngValue]="i">{{ i }}</option>
+  </select>
+
+  <button (click)="addToCart()" class="btn btn-primary">Add to cart</button>
+</div>
